@@ -97,12 +97,12 @@ RouteModel::Node *RoutePlanner::NextNode() {
     //std::cout <<"NextNode";
     sort(open_list.begin(),open_list.end(), wayToSort);
     RouteModel::Node *lowest_sum = *open_list.begin();
-    for (size_t i = 0; i < open_list.size(); i++)
-    {
-        std::cout << open_list.at(i)->h_value+open_list.at(i)->g_value;
-        std::cout << " , ";
+    // for (size_t i = 0; i < open_list.size(); i++)
+    // {
+    //     std::cout << open_list.at(i)->h_value+open_list.at(i)->g_value;
+    //     std::cout << " , ";
         
-    }
+    // }
     //std::cout << "lowest =" << open_list.at(0)->h_value+open_list.at(0)->g_value << "\n";
     std::cout << "lowest =" << open_list.at(0)->h_value +open_list.at(0)->g_value << "\n";
     
@@ -173,7 +173,7 @@ void RoutePlanner::AStarSearch() {
     open_list.push_back(start_node);
     //this->AddNeighbors(current_node);
     AddNeighbors(start_node);
-    start_node=current_node;
+    current_node=start_node;
     
     
     
@@ -182,12 +182,12 @@ void RoutePlanner::AStarSearch() {
     {
         
         current_node=NextNode();
-        //current_node->visited=true;
         
-        //break;
+        
+        
         std::cout <<" distance "<< current_node->distance(*end_node);
               
-        //if (current_node->x == end_node->x  & current_node->y ==end_node->y)
+        
         if (current_node->distance(*end_node)==0)
 
         {
@@ -198,7 +198,7 @@ void RoutePlanner::AStarSearch() {
         }
         AddNeighbors(current_node);
         
-        //std::cout <<" distance "<< current_node->distance(*end_node);
+        
         
     }
     
