@@ -182,7 +182,7 @@ void RoutePlanner::AStarSearch() {
         std::cout <<" distance "<< current_node->distance(*end_node);
         std::cout << "openlist size in loop" <<open_list.size() << " **** ";    
         
-        while (current_node->parent != nullptr)
+        if (current_node==end_node)
         //while (current_node->distance(*RoutePlanner::end_node) != 0.0)
         {
              m_Model.path = ConstructFinalPath(current_node);
